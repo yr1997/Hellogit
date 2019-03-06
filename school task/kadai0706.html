@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="utf-8">
+<title>JQueryのサンプル</title>
+</head>
+
+<body>
+
+
+<table>
+	<tr><th>番号</th><th>名前</th><th>学部</th><th>学科</th></tr>
+	<tr><td>1</td><td>佐藤</td><td>文学部</td><td>国文学科</td></tr>
+	<tr><td>2</td><td>山下</td><td>文学部</td><td>英文学科</td></tr>
+	<tr><td>3</td><td>山田</td><td>文学部</td><td>国文学科</td></tr>
+	<tr><td>4</td><td>加藤</td><td>理学部</td><td>数学学科</td></tr>
+	<tr><td>5</td><td>丸山</td><td>理学部</td><td>物理学科</td></tr>
+	<tr><td>6</td><td>高田</td><td>工学部</td><td>機械学科</td></tr>
+	<tr><td>7</td><td>大島</td><td>工学部</td><td>機械学科</td></tr>
+	<tr><td>8</td><td>荒木</td><td>法学部</td><td>法律学科</td></tr>
+</table>
+<hr>
+
+<dl>
+	<dt>文学部</dt>
+	<dd><p>人類が歩んできた世界の足跡をたどり、刻まれてきた叡智を学ぶことは、いまを生きる私たちの大きな力に変わります。「言語表現」「歴史」「世界」をじっくり学んだ視点から現代社会を見つめ直し、「生かす・使える知識」へ変えてゆく――それが文学部の教育理念です。</p></dd>
+	<dt>理学部</dt>
+	<dd><p>日々進歩するテクノロジーを発展させ、活用するためには「科学の基礎力」が必要不可欠です。そんな自然科学の基礎を効率的に理解し修得するために、自由度の高いカリキュラムを導入。社会の多様化に適応できる人材育成に取り組んでいます。</p></dd>
+	<dt>工学部</dt>
+	<dd><p>機械、電気電子、材料、建築、土木といった伝統的な基幹分野から、生命化学、原子力、光･画像、そして航空宇宙、医用工学といった先端領域まで、工学全般を幅広くカバーしています。漠然とした興味からのスタートでも、必ず“ものづくり”の楽しさを実感できるようになるでしょう。</p></dd>
+	<dt>法学部</dt>
+	<dd><p>一般的に法学部は学ぶ科目が固定されがちです。しかし本学では、法職・経営ビジネス・国際関係のなかから興味がある、また将来の進路に沿った授業を選択可能。リーガルマインド（法的思考力）を養いながら、オリジナルの学修カリキュラムを組むことができます。</p></dd>
+</dl>
+
+<hr>
+
+<div id="main">
+	<img src = "img1_L.jpg">
+</div>
+
+	<ul>
+		<li><a href="img1_L.jpg"><img src ="img1_S.jpg"></a></li>
+		<li><a href="img2_L.jpg"><img src ="img2_S.jpg"></a></li>
+		<li><a href="img3_L.jpg"><img src ="img3_S.jpg"></a></li>
+		<li><a href="img4_L.jpg"><img src ="img4_S.jpg"></a></li>
+		<li><a href="img5_L.jpg"><img src ="img5_S.jpg"></a></li>
+	</ul>
+<br>
+
+<style>
+
+	dl { margin : 20px auto ;width : 300px }
+	dt { color : white ; background : black;    }
+	dd {  margin : 0; background : #f2f2f2; }
+	dd p {  margin : 0; text-indent : 1em; padding : 20px; }
+
+	#main{margin : 0 auto; width : 500px;height: 300px; }
+	#main img {  position : absolute ; }
+	li { list-style : none ; float : left }
+	
+	br { clear : both ; }
+	
+	table { margin : 20px auto;  }
+	th { background : #222222; color : white; }
+	th, td { padding : 5px; font-size : small; }
+	.odd { background : #ff0000; }
+	.even{ background : #F2F2F2; }
+	.hover{ background : #b2d8ff; }
+	.click{ background : orange; }
+
+</style>
+
+<script src="http://code.jquery.com/jquery-3.2.1.min.js">
+</script>
+
+<script>
+
+$(function(){
+$("th:nth-child(odd)").addClass("odd");
+$("tr:nth-child(even)").addClass("even");
+});
+
+$("tr:not(:first-child)").mouseover(function(){
+$(this).addClass("hover");
+}).mouseout(function(){
+$(this).removeClass("hover");
+});
+
+$("dd:not(:first)").css("display","none");   
+
+$("dl dt").click(function(){
+if($("+dd",this).css("display")=="none"){
+$("dd").slideUp("slow");
+$("+dd",this).slideDown("slow");
+}
+});
+
+$('a').click(function(){
+//$('#main img').attr('src', $(this).attr('href'));//
+
+$('#main img').before("<img src='"+$(this).attr("href")+"'>");
+$('#main img:last').fadeOut(1000,function(){
+$(this).remove();
+});
+
+return false;
+});
+
+
+</script>
+</body>
+</html>

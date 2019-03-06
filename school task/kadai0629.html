@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="utf-8">
+<title>CSS3・DOMのサンプル</title>
+</head>
+
+<body>
+<h2 id="page_title">Webクリエイション：</h2>
+<button id="add_text">文字の追加</button>
+
+<br><br>
+<table id="data_table" border="1">
+	<tr class ="head_tr">
+		<td width="50">名前</td>
+		<td width="200">住所</td>
+	</tr>
+</table>
+<br>
+<button  id ="add_low">行の追加</button>
+
+<br><br><hr><br><br>
+
+<button  id ="add_button">課題</button>
+
+
+<style>
+h2 {
+	color : white;
+	background : navy;
+}
+
+.head_tr{
+	color:white;
+	background: navy;
+}
+.add_tr{
+	color:black;
+	background:powderblue ;
+}
+.selected_tr{
+	color:white;
+	background: red;
+}
+
+</style>
+
+<script>
+
+var pt = document.getElementById('page_title');
+pt.addEventListener('mouseover', function(){
+text = document.createTextNode('DOMの操作');
+pt.appendChild(text);
+});
+pt.addEventListener('mouseout', function(){
+pt.removeChild(text);
+});
+
+
+var b1 = document.getElementById('add_text');
+b1.addEventListener('click', function(){
+var p1 = document.createElement('p');
+var text_h = document.createTextNode('Hello!');
+p1.appendChild( text_h );
+document.body.appendChild( p1 );
+});
+
+
+var b2 = document.getElementById("add_low");
+b2.addEventListener('click', function(){
+
+var name = prompt('お名前を入力してください'); 
+var address = prompt('住所を入力してください'); 
+
+var dtable = document.getElementById("data_table");
+var tr1 = document.createElement('tr');
+var td_1 = document.createElement('td');
+var td_2 = document.createElement('td');
+tr1.appendChild( td_1 );
+
+/*var text_1 = document.createTextNode('丸山');*/
+var text_1 = document.createTextNode( name );
+td_1.appendChild( text_1 );
+
+tr1.appendChild( td_2 );
+
+/*var text_2 = document.createTextNode('東京');*/
+var text_2 = document.createTextNode( address );
+
+td_2.appendChild( text_2 );
+
+dtable.appendChild( tr1 );
+
+tr1.className='add_tr';
+
+tr1.addEventListener('mouseover', function(){
+tr1.className='selected_tr';
+});
+tr1.addEventListener('mouseout', function(){
+tr1.className='add_tr';
+});
+
+});
+
+var b3 = document.getElementById("add_button");
+b3.addEventListener('click', function(){
+var p2= document.createElement('button');
+var text_h = document.createTextNode('課題');
+p2.appendChild( text_h );
+document.body.appendChild( p2 );
+});
+
+
+
+</script>
+
+</body>
+</html>

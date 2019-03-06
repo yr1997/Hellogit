@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="utf-8">
+<title>DOMのサンプル</title>
+
+</head>
+
+<body>
+<h1>東海大学</h1>
+<h2 id="d" class="d">学部</h2>
+
+
+	<ul>
+		<li id="i1" class="i">文学部</li>
+			<ul id="s1" class="s">
+			<li>文明学科</li>
+			<li>北欧学科</li>
+			<li>歴史学科</li>
+			<li>日本文学科</li>
+			</ul>
+		<li id="i2" class="i">理学部</li>
+			<ul id="s2" class="s">
+			<li>数学科</li>
+			<li>情報数理学科</li>
+			<li>物理学科</li>
+			<li>化学科</li>
+			</ul>
+
+		<li id="i3" class="i">工学部</li>
+			<ul id="s3" class="s">
+			<li>機械学科</li>
+			<li>電気電子学科</li>
+			<li>材料学科</li>
+			<li>建築学科</li>
+			</ul>
+
+	</ul>
+
+
+
+
+
+<style>
+
+
+#i1,#i2,#i3{  color : white ; background : black;    }
+ul {width : 300px; margin : 100px auto ;}
+ul ul{ color : black ;margin : 0; background : #f2f2f2; width : 260px;display:none; }
+
+</style>
+
+<script>
+
+
+
+
+
+
+document.getElementById('i1').addEventListener('click',function(){
+if(s1.style.display=="block") {
+s1.style.display="none";
+} else {
+s1.style.display="block";
+}
+});
+
+document.getElementById('i2').addEventListener('click',function(){
+if(s2.style.display=="block") {
+s2.style.display="none";
+} else {
+s2.style.display="block";
+}
+});
+
+document.getElementById('i3').addEventListener('click',function(){
+if(s3.style.display=="block") {
+s3.style.display="none";
+} else {
+s3.style.display="block";
+}
+});
+
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<html>
+<head><meta charset="utf-8">
+<title>写真集のページ</title>
+</head>
+
+<body>
+<center>
+<img src = "img1_L.jpg">
+<br>
+<form>
+<input type= "button" value= "前へ" onClick = "change_photos();">&nbsp;
+<input type= "button" value= "次へ" onClick = "change_photos();"><br>
+</form>
+</center>
+<hr>
+
+<img src ="img1_S.jpg">&nbsp;
+<img src ="img2_S.jpg">&nbsp;
+<img src ="img3_S.jpg">&nbsp;
+<img src ="img4_S.jpg">&nbsp;
+<img src ="img5_S.jpg">&nbsp;
+
+
+<script>
+
+ var photos = new Array(5);
+ var p_no = 0;
+
+        photos[0] = "img1_L.jpg";
+        photos[1] = "img2_L.jpg";
+        photos[2] = "img3_L.jpg";
+        photos[3] = "img4_L.jpg";
+        photos[4] = "img5_L.jpg";
+        
+
+
+ function change_photos () {
+
+
+
+if ( p_no == 4)
+  { p_no=0; }
+  else
+  {  p_no++; }
+  
+
+
+document.images[0].src=photos[p_no];
+ }
+
+</script>
+
+</body>
+</html>
