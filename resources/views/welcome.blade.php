@@ -95,6 +95,6 @@ echo $rand;
                 </div>
             </div>
         </div>
-        <body background="school task/YAMAyamasha-09_TP_V.jpg">
+  
     </body>
 </html>
